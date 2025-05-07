@@ -1,0 +1,75 @@
+<!DOCTYPE htm<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contagem Regressiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .contador {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #tempo {
+      font-size: 2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contador">
+    <h1>Contagem Regressiva</h1>
+    <div id="tempo">Carregando...</div>
+  </div>
+
+  <script>
+    // Altere a data abaixo para o destino da contagem
+    const dataAlvo = new Date("2025-12-31T23:59:59").getTime();
+
+    const intervalo = setInterval(function() {
+      const agora = new Date().getTime();
+      const distancia = dataAlvo - agora;
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("tempo").innerHTML =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+      if (distancia < 0) {
+        clearInterval(intervalo);
+        document.getElementById("tempo").innerHTML = "Tempo esgotado!";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>l>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Contagem regressiva!</title>
+</head>
+<body>
+  <h1>
+    Contagem rwgressiva!
+  </h1>
+</body>
+</html>

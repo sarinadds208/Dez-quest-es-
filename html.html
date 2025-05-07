@@ -1,0 +1,91 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de IMC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 40px;
+      text-align: center;
+    }
+    .container {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de IMC</h1>
+    <input type="number" id="peso" placeholder="Peso (kg)">
+    <input type="number" id="altura" placeholder="Altura (m)">
+    <button onclick="calcularIMC()">Calcular</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularIMC() {
+      const peso = parseFloat(document.getElementById('peso').value);
+      const altura = parseFloat(document.getElementById('altura').value);
+
+      if (isNaN(peso) || isNaN(altura) || altura <= 0) {
+        document.getElementById('resultado').innerText = 'Por favor, insira valores válidos.';
+        return;
+      }
+
+      const imc = peso / (altura * altura);
+      let classificacao = '';
+
+      if (imc < 18.5) classificacao = 'Abaixo do peso';
+      else if (imc < 24.9) classificacao = 'Peso normal';
+      else if (imc < 29.9) classificacao = 'Sobrepeso';
+      else if (imc < 34.9) classificacao = 'Obesidade grau I';
+      else if (imc < 39.9) classificacao = 'Obesidade grau II';
+      else classificacao = 'Obesidade grau III';
+
+      document.getElementById('resultado').innerText =
+        `Seu IMC é ${imc.toFixed(2)} - ${classificacao}`;
+    }
+  </script>
+</body>
+</html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <h1>
+    imc divonico
+  </h1>
+</body>
+</html>

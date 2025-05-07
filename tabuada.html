@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabuada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf6e3;
+      padding: 40px;
+    }
+    .container {
+      max-width: 300px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Tabuada</h2>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button onclick="gerarTabuada()">Gerar</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function gerarTabuada() {
+      const numero = parseInt(document.getElementById('numero').value);
+      const resultadoDiv = document.getElementById('resultado');
+      resultadoDiv.innerHTML = '';
+
+      if (isNaN(numero)) {
+        resultadoDiv.innerText = "Digite um número válido.";
+        return;
+      }
+
+      for (let i = 1; i <= 10; i++) {
+        const linha = document.createElement('div');
+        linha.textContent = `${numero} x ${i} = ${numero * i}`;
+        resultadoDiv.appendChild(linha);
+      }
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <h1>
+    Tabuada!
+  </h1>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE h<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificação de Aprovação</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f9ff;
+      padding: 40px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Verificação de Aprovação</h2>
+    <label for="nota1">Nota 1:</label>
+    <input type="number" id="nota1" placeholder="Ex: 7">
+
+    <label for="nota2">Nota 2:</label>
+    <input type="number" id="nota2" placeholder="Ex: 5">
+
+    <label for="nota3">Nota 3 (opcional):</label>
+    <input type="number" id="nota3" placeholder="Ex: 6">
+
+    <button onclick="verificar()">Verificar</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function verificar() {
+      const nota1 = parseFloat(document.getElementById('nota1').value);
+      const nota2 = parseFloat(document.getElementById('nota2').value);
+      const nota3 = parseFloat(document.getElementById('nota3').value);
+
+      if (isNaN(nota1) || isNaN(nota2)) {
+        document.getElementById('resultado').innerText = "Informe pelo menos duas notas válidas.";
+        return;
+      }
+
+      let media;
+      if (!isNaN(nota3)) {
+        media = (nota1 + nota2 + nota3) / 3;
+      } else {
+        media = (nota1 + nota2) / 2;
+      }
+
+      let status;
+      if (media >= 7) {
+        status = "Aprovado";
+      } else if (media >= 5) {
+        status = "Recuperação";
+      } else {
+        status = "Reprovado";
+      }
+
+      document.getElementById('resultado').innerText = 
+        `Média: ${media.toFixed(2)} - Situação: ${status}`;
+    }
+  </script>
+</body>
+</html>tml>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <h1>
+    Aprovado ou reprovado!
+  </h1>
+</body>
+</html>

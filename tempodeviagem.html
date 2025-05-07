@@ -1,0 +1,76 @@
+<!D<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Tempo de Viagem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef6ff;
+      padding: 40px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Tempo de Viagem</h2>
+    <label for="distancia">Distância (em km):</label>
+    <input type="number" id="distancia" placeholder="Ex: 150">
+
+    <label for="velocidade">Velocidade média (em km/h):</label>
+    <input type="number" id="velocidade" placeholder="Ex: 80">
+
+    <button onclick="calcularTempo()">Calcular</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularTempo() {
+      const distancia = parseFloat(document.getElementById('distancia').value);
+      const velocidade = parseFloat(document.getElementById('velocidade').value);
+
+      if (!isNaN(distancia) && !isNaN(velocidade) && velocidade > 0) {
+        const tempoHoras = distancia / velocidade;
+        const horas = Math.floor(tempoHoras);
+        const minutos = Math.round((tempoHoras - horas) * 60);
+
+        document.getElementById('resultado').innerText =
+          `Tempo estimado: ${horas}h ${minutos}min`;
+      } else {
+        document.getElementById('resultado').innerText =
+          "Insira valores válidos para distância e velocidade.";
+      }
+    }
+  </script>
+</body>
+</html>OCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <h1>
+    Tempo de viagem!
+  </h1>
+</body>
+</html>

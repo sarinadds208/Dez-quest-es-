@@ -1,0 +1,80 @@
+<!DO<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Média de Notas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5ff;
+      padding: 40px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Cálculo de Média</h2>
+    <label>Notas (separadas por vírgula):</label>
+    <input type="text" id="notas" placeholder="Ex: 7, 8.5, 6">
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularMedia() {
+      const entrada = document.getElementById('notas').value;
+      const notas = entrada.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+      
+      if (notas.length === 0) {
+        document.getElementById('resultado').innerText = "Digite notas válidas.";
+        return;
+      }
+
+      const soma = notas.reduce((total, nota) => total + nota, 0);
+      const media = soma / notas.length;
+
+      let situacao;
+      if (media >= 7) {
+        situacao = "Aprovado";
+      } else if (media >= 5) {
+        situacao = "Recuperação";
+      } else {
+        situacao = "Reprovado";
+      }
+
+      document.getElementById('resultado').innerText = 
+        `Média: ${media.toFixed(2)} - Situação: ${situacao}`;
+    }
+  </script>
+</body>
+</html>CTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <h1>
+    Notas de media!
+  </h1>
+</body>
+</html>
